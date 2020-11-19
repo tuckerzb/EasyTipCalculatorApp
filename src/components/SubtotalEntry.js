@@ -2,11 +2,11 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Input} from 'react-native-elements';
 
-const SubtotalEntry = () => {
+const SubtotalEntry = (props) => {
 	return (
 		<View>
-			<Text style={styles.header}>Step 1: Input Subtotal</Text>
-			<Input keyboardType={'decimal-pad'} placeholder='$$$' />
+			<Text style={styles.header}>Input Subtotal</Text>
+			<Input keyboardType={'decimal-pad'} placeholder='$$$' value={props.subtotal} onChangeText={props.handleSubtotalChange} />
 		</View>
 	);
 };
