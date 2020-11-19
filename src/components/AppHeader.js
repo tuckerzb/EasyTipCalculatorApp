@@ -5,10 +5,10 @@ import {Header} from 'react-native-elements';
 const AppHeader = () => {
  return (
 		<Header
-		leftComponent={{ icon: 'clear', color: '#000' }}
-		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { color: '#000', fontSize: 20, fontWeight: 'bold' } }}
+		leftComponent={{ icon: 'clear', color: '#fff' }}
+		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { color: '#fff', fontSize: 20, fontWeight: 'bold' } }}
 		  containerStyle={{
-		  	backgroundColor: '#5CDB95'
+		  	backgroundColor: '#05386B'
 		  }}
 		/>
 	);
