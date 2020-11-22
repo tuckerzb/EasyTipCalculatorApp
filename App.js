@@ -31,15 +31,15 @@ const App = () => {
 
   const handleSplitChange = (newSplit) => {
     setSplit(newSplit);
-    setTipPer(((subtotalFloat * tipPercentFloat) + subtotalFloat) / newSplit);
+    setTipPer(calculateTipPer().toFixed(2));
     setTotalPer(billTotalFloat / newSplit);
   }
 
   useEffect(() => {
     setSubtotalFloat(Number.parseFloat(subtotal));
     setTipPercentFloat(Number.parseFloat((tipPercent) / 100));
-    setTipPer((((subtotalFloat * tipPercentFloat) + subtotalFloat) / split));
-    setTotalPer(billTotalFloat / split);
+    setTipPer(calculateTipPer().toFixed(2));
+    setTotalPer(calculateTotalPer().toFixed(2));
 
     if (Number.isNaN(calculateBillTotal())) {
       setBillTotalFloat('');
@@ -48,6 +48,14 @@ const App = () => {
     }
 
   })
+
+  const calculateTipPer = () => {
+    return (((subtotalFloat * tipPercentFloat) + subtotalFloat) / split);
+  };
+
+  const calculateTotalPer = () => {
+    return (billTotalFloat / split);
+  };
 
   const calculateBillTotal = () => {
     return (subtotalFloat + (subtotalFloat * tipPercentFloat));
