@@ -15,9 +15,9 @@ const SplitBill = (props) => {
 				onValueChange={(value) => props.handleSplitChange(value)}
 			/>
 			<Text style={styles.header}>Tip Per Person</Text>
-			<Text style={styles.total}>{(Number.isNaN(props.tipPer) || props.tipPer == '0') ? '' : props.tipPer}</Text>
+			<Text style={styles.total}>{(props.tipPer == 'NaN') ? '' : props.tipPer}</Text>
 			<Text style={styles.header}>Total Per Person</Text>
-			<Text style={styles.total}>{(Number.isNaN(props.totalPer) || props.totalPer == '0') ? '' : props.totalPer}</Text>
+			<Text style={styles.total}>{(props.totalPer == '0.00') ? '' : props.totalPer}</Text>
 		</View>
 	);
 };

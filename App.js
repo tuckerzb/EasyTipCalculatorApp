@@ -31,11 +31,21 @@ const App = () => {
 
   const handleSplitChange = (newSplit) => {
     setSplit(newSplit);
-    setTipPer(calculateTipPer().toFixed(2));
-    setTotalPer(billTotalFloat / newSplit);
+    // setTipPer(calculateTipPer().toFixed(2));
+    // setTotalPer(billTotalFloat / newSplit);
   }
 
   useEffect(() => {
+    console.log("Subtotal: " + subtotal);
+    console.log("Tip Percent:" + tipPercent);
+    console.log("Split: " + split);
+    console.log("Suntotal Float: " + subtotalFloat);
+    console.log("Tip Percent Float: " + tipPercentFloat);
+    console.log("Bill Total Float: " + billTotalFloat);
+    console.log("Tip Per:" + tipPer);
+    console.log("Total Per: " + totalPer);
+    console.log("------------------------");
+    
     setSubtotalFloat(Number.parseFloat(subtotal));
     setTipPercentFloat(Number.parseFloat((tipPercent) / 100));
     setTipPer(calculateTipPer().toFixed(2));
