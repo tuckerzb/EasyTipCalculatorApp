@@ -35,6 +35,12 @@ const App = () => {
     // setTotalPer(billTotalFloat / newSplit);
   }
 
+  const handleClear = () => {
+    setSubtotal('');
+    setTipPercent(20);
+    setSplit(1);
+  }
+
   useEffect(() => {
     console.log("Subtotal: " + subtotal);
     console.log("Tip Percent:" + tipPercent);
@@ -45,7 +51,7 @@ const App = () => {
     console.log("Tip Per:" + tipPer);
     console.log("Total Per: " + totalPer);
     console.log("------------------------");
-    
+
     setSubtotalFloat(Number.parseFloat(subtotal));
     setTipPercentFloat(Number.parseFloat((tipPercent) / 100));
     setTipPer(calculateTipPer().toFixed(2));
@@ -76,7 +82,7 @@ const App = () => {
   return (
   <View  style={styles.container}>
     <View style={styles.header}>
-      <AppHeader />
+      <AppHeader {...{handleClear}} />
     </View>
     <View style={styles.subtotal}>
       <SubtotalEntry {...{subtotal, handleSubtotalChange}} />

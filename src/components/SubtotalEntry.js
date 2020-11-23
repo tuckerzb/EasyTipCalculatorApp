@@ -10,7 +10,7 @@ const SubtotalEntry = (props) => {
 			<Input 
 			leftIcon={{ type: 'font-awesome', name: 'dollar' }}
 			keyboardType={'decimal-pad'} 
-			placeholder='Click to Enter' 
+			placeholder='Touch to Enter' 
 			value={props.subtotal} 
 			onChangeText={props.handleSubtotalChange} />
 		</View>
