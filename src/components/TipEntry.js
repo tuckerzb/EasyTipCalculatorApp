@@ -12,6 +12,7 @@ const TipEntry = (props) => {
 				maximumValue={50}
 				step={1}
 				value={props.tipPercent}
+				thumbStyle={{backgroundColor: '#58a26a'}}
 				onValueChange={(value) => props.handleTipPercentChange(value)}
 			/>
 			<Text style={styles.header}>Total With Tip</Text>
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 24,
+        backgroundColor: '#45778c',
   },
   percent: {
   	fontSize: 20,

@@ -12,6 +12,7 @@ const SplitBill = (props) => {
 				maximumValue={10}
 				step={1}
 				value={props.split}
+				thumbStyle={{backgroundColor: '#58a26a'}}
 				onValueChange={(value) => props.handleSplitChange(value)}
 			/>
 			<Text style={styles.header}>Tip Per Person</Text>
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 24,
+        backgroundColor: '#45778c',
   },
   split: {
   	fontSize: 20,

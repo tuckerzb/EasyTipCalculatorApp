@@ -80,18 +80,20 @@ const App = () => {
 
 
   return (
-  <View  style={styles.container}>
+  <View style={styles.container}>
     <View style={styles.header}>
       <AppHeader {...{handleClear}} />
     </View>
-    <View style={styles.subtotal}>
-      <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
-    </View>
-    <View style={styles.tip}>
-      <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
-    </View>
-        <View style={styles.split}>
-      <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
+    <View style={styles.contentContainer}>
+      <View style={styles.subtotal}>
+        <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
+      </View>
+      <View style={styles.tip}>
+        <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
+      </View>
+          <View style={styles.split}>
+        <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
+      </View>
     </View>
   </View>
   );
@@ -100,15 +102,22 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#379683',
+    backgroundColor: '#f5f5f6',
   },
   header: {
 
   },
+  contentContainer: {
+        marginLeft: 5,
+    marginRight: 5,
+  },
+  blockHeader: {
+    backgroundColor: '#45778c',
+  },
   subtotal: {
-    marginTop: 20,
+    marginTop: 10,
     paddingLeft: 10,
-    backgroundColor: '#5CDb95',
+    backgroundColor: '#e1e2e1',
     borderWidth: 1,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -116,19 +125,19 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 10,
   },
     tip: {
-      marginTop: 20,
-      paddingLeft: 10,
-      backgroundColor: '#5CDb95',
-      borderWidth: 1,
-      borderTopLeftRadius: 10,
-      borderTopRightRadius: 10,
-      borderBottomLeftRadius: 10,
-      borderBottomRightRadius: 10,
+        marginTop: 10,
+        paddingLeft: 10,
+        backgroundColor: '#e1e2e1',
+        borderWidth: 1,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
   },
-      split: {
-      marginTop: 20,
+    split: {
+      marginTop: 10,
       paddingLeft: 10,
-      backgroundColor: '#5CDb95',
+      backgroundColor: '#e1e2e1',
       borderWidth: 1,
       borderTopLeftRadius: 10,
       borderTopRightRadius: 10,
