@@ -104,42 +104,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f6',
   },
-  header: {
-
-  },
   contentContainer: {
-        marginLeft: 5,
+    marginLeft: 5,
     marginRight: 5,
-  },
-  blockHeader: {
-    backgroundColor: '#45778c',
   },
   subtotal: {
     marginTop: 10,
     backgroundColor: '#e1e2e1',
     borderWidth: 1,
-    // borderTopLeftRadius: 10,
-    // borderTopRightRadius: 10,
-    // borderBottomLeftRadius: 10,
-    // borderBottomRightRadius: 10,
   },
     tip: {
         marginTop: 10,
         backgroundColor: '#e1e2e1',
         borderWidth: 1,
-        // borderTopLeftRadius: 10,
-        // borderTopRightRadius: 10,
-        // borderBottomLeftRadius: 10,
-        // borderBottomRightRadius: 10,
   },
     split: {
       marginTop: 10,
       backgroundColor: '#e1e2e1',
       borderWidth: 1,
-      // borderTopLeftRadius: 10,
-      // borderTopRightRadius: 10,
-      // borderBottomLeftRadius: 10,
-      // borderBottomRightRadius: 10,
   },
 });
 

@@ -17,7 +17,7 @@ const AppHeader = (props) => {
 		}
 		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { color: '#fff', fontSize: 20, fontWeight: 'bold' } }}
 		  containerStyle={{
-		  	backgroundColor: '#114c5f'
+		  	backgroundColor: '#002335'
 		  }}
 		/>
 	);
