@@ -14,10 +14,11 @@ const SplitBill = (props) => {
 				value={props.split}
 				thumbStyle={{backgroundColor: '#58a26a'}}
 				onValueChange={(value) => props.handleSplitChange(value)}
+				style={{     marginBottom: 10}}
 			/>
-			<Text style={styles.header}>Tip Per Person</Text>
+			<Text style={styles.subHeader}>Tip Per Person</Text>
 			<Text style={styles.total}>{(props.tipPer == 'NaN') ? '' : props.tipPer}</Text>
-			<Text style={styles.header}>Total Per Person</Text>
+			<Text style={styles.subHeader}>Total Per Person</Text>
 			<Text style={styles.total}>{(props.totalPer == '0.00') ? '' : props.totalPer}</Text>
 		</View>
 	);
@@ -29,14 +30,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 24,
         backgroundColor: '#45778c',
+             marginBottom: 10,
+  },
+    subHeader: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 20,
+             marginBottom: 10,
   },
   split: {
   	fontSize: 20,
   	textAlign: 'center',
+  	     marginBottom: 10,
   },
   total: {
   	fontSize: 20,
   	textAlign: 'center',
+  	     marginBottom: 10,
   },
 });
 
