@@ -8,22 +8,16 @@ const AppHeader = (props) => {
 		leftComponent={
 			<TouchableOpacity  onPress={props.handleClear}>
                 <Icon
-                    name="clear"
+                    name="backspace"
                     size={30}
                     color="#fff"/>
             </TouchableOpacity>
 		}
-		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { margin: 0, padding: 0, color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
+		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { margin: 0, padding: 0, color: '#fff', fontSize: 20, fontWeight: 'bold' } }}
 		  containerStyle={{
 		  	backgroundColor: '#002335'
 		  }}
 		/>
-	);
-};
-
-const ClearIcon = () => {
-	return (
-		<Icon name="clear" color="#fff" />
 	);
 };
 

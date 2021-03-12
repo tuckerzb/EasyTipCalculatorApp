@@ -1,15 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {Input} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {Input, Icon} from 'react-native-elements';
 
 const SubtotalEntry = (props) => {
 	return (
 		<View>
 			<Text style={styles.header}>Input Subtotal</Text>
 			<Input 
-			leftIcon={{ type: 'font-awesome', name: 'dollar' }}
-			keyboardType={'decimal-pad'} 
+			leftIcon={
+				<Icon
+      				name='dollar'
+					type='font-awesome'
+      				size={24}
+      				color='black'
+    		/>}
+			keyboardType={'numeric'} 
 			placeholder='Touch to Enter' 
 			value={props.subtotal} 
 			onChangeText={props.handleSubtotalChange} />

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import AppHeader from './src/components/AppHeader';
 import SubtotalEntry from './src/components/SubtotalEntry';
 import TipEntry from './src/components/TipEntry';
@@ -24,32 +24,33 @@ const App = () => {
   };
 
   const handleTipPercentChange = (newTipPercent) => {
+    Keyboard.dismiss();
     setTipPercent(newTipPercent);
     setTipPercentFloat(Number.parseFloat(newTipPercent / 100));
   };
 
   const handleSplitChange = (newSplit) => {
+    Keyboard.dismiss();
     setSplit(newSplit);
-    // setTipPer(calculateTipPer().toFixed(2));
-    // setTotalPer(billTotalFloat / newSplit);
   }
 
   const handleClear = () => {
+    Keyboard.dismiss();
     setSubtotal('');
     setTipPercent(20);
     setSplit(1);
   }
 
   useEffect(() => {
-    console.log("Subtotal: " + subtotal);
-    console.log("Tip Percent:" + tipPercent);
-    console.log("Split: " + split);
-    console.log("Suntotal Float: " + subtotalFloat);
-    console.log("Tip Percent Float: " + tipPercentFloat);
-    console.log("Bill Total Float: " + billTotalFloat);
-    console.log("Tip Per:" + tipPer);
-    console.log("Total Per: " + totalPer);
-    console.log("------------------------");
+    // console.log("Subtotal: " + subtotal);
+    // console.log("Tip Percent:" + tipPercent);
+    // console.log("Split: " + split);
+    // console.log("Suntotal Float: " + subtotalFloat);
+    // console.log("Tip Percent Float: " + tipPercentFloat);
+    // console.log("Bill Total Float: " + billTotalFloat);
+    // console.log("Tip Per:" + tipPer);
+    // console.log("Total Per: " + totalPer);
+    // console.log("------------------------");
 
     setSubtotalFloat(Number.parseFloat(subtotal));
     setTipPercentFloat(Number.parseFloat((tipPercent) / 100));
@@ -80,22 +81,29 @@ const App = () => {
 
   return (
   <SafeAreaProvider>
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <AppHeader {...{handleClear}} />
-      </View>
-      <View style={styles.contentContainer}>
-        <View style={styles.subtotal}>
-          <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <AppHeader {...{handleClear}} />
+          </View>
+          <View style={styles.contentContainer}>
+            <View style={styles.subtotal}>
+              <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
+            </View>
+            <View style={styles.tip}>
+              <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
+            </View>
+                <View style={styles.split}>
+              <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
+            </View>
+          </View>
         </View>
-        <View style={styles.tip}>
-          <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
-        </View>
-            <View style={styles.split}>
-          <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
-        </View>
-      </View>
-    </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   </SafeAreaProvider>
   );
 };
@@ -125,7 +133,5 @@ const styles = StyleSheet.create({
       borderWidth: 1,
   },
 });
-
-
 
 export default App;
