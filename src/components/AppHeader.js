@@ -5,17 +5,15 @@ import {Header, Icon} from 'react-native-elements';
 const AppHeader = (props) => {
  return (
 		<Header
-		// leftComponent={{ icon: 'clear', color: '#fff' }}
 		leftComponent={
 			<TouchableOpacity  onPress={props.handleClear}>
                 <Icon
-                    // containerStyle={{paddingRight: 16}}
                     name="clear"
                     size={30}
                     color="#fff"/>
             </TouchableOpacity>
 		}
-		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { color: '#fff', fontSize: 20, fontWeight: 'bold' } }}
+		  centerComponent={{ text: 'EASY TIP CALCULATOR', style: { margin: 0, padding: 0, color: '#fff', fontSize: 18, fontWeight: 'bold' } }}
 		  containerStyle={{
 		  	backgroundColor: '#002335'
 		  }}

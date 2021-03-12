@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button, ThemeProvider} from 'react-native-elements';
 import AppHeader from './src/components/AppHeader';
 import SubtotalEntry from './src/components/SubtotalEntry';
 import TipEntry from './src/components/TipEntry';
 import SplitBill from './src/components/SplitBill.js';
-
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const [subtotal, setSubtotal] = useState('');
@@ -66,7 +65,7 @@ const App = () => {
   })
 
   const calculateTipPer = () => {
-    return (((subtotalFloat * tipPercentFloat) + subtotalFloat) / split);
+    return (((subtotalFloat * tipPercentFloat)) / split);
   };
 
   const calculateTotalPer = () => {
@@ -80,22 +79,24 @@ const App = () => {
 
 
   return (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <AppHeader {...{handleClear}} />
+  <SafeAreaProvider>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <AppHeader {...{handleClear}} />
+      </View>
+      <View style={styles.contentContainer}>
+        <View style={styles.subtotal}>
+          <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
+        </View>
+        <View style={styles.tip}>
+          <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
+        </View>
+            <View style={styles.split}>
+          <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
+        </View>
+      </View>
     </View>
-    <View style={styles.contentContainer}>
-      <View style={styles.subtotal}>
-        <SubtotalEntry {...{subtotal, handleSubtotalChange}} />
-      </View>
-      <View style={styles.tip}>
-        <TipEntry {...{tipPercent, billTotalFloat, handleTipPercentChange}} />
-      </View>
-          <View style={styles.split}>
-        <SplitBill {...{split, tipPer, totalPer, handleSplitChange}} />
-      </View>
-    </View>
-  </View>
+  </SafeAreaProvider>
   );
 };
 
