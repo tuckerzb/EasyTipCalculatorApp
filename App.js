@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {Overlay, Text} from 'react-native-elements';
 import AppHeader from './src/components/AppHeader';
 import SubtotalEntry from './src/components/SubtotalEntry';
 import TipEntry from './src/components/TipEntry';
 import SplitBill from './src/components/SplitBill.js';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { TouchableOpacity } from 'react-native';
+import { Linking } from 'react-native';
 
 const App = () => {
   const [subtotal, setSubtotal] = useState('');
@@ -17,6 +20,8 @@ const App = () => {
 
   const [tipPer, setTipPer] = useState(0.0);
   const [totalPer, setTotalPer] = useState(0.0);
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleSubtotalChange = (newSubtotal) => {
     setSubtotal(newSubtotal);
@@ -77,6 +82,10 @@ const App = () => {
     return (subtotalFloat + (subtotalFloat * tipPercentFloat));
   };
 
+  const handleModal = () => {
+    setModalVisible(!modalVisible);
+  }
+
 
 
   return (
@@ -88,7 +97,7 @@ const App = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <AppHeader {...{handleClear}} />
+            <AppHeader {...{handleClear, handleModal}} />
           </View>
           <View style={styles.contentContainer}>
             <View style={styles.subtotal}>
@@ -103,6 +112,17 @@ const App = () => {
           </View>
         </View>
       </TouchableWithoutFeedback>
+        <Overlay isVisible={modalVisible} onBackdropPress={handleModal}>
+          <View style={styles.helpModal}>
+            <Text style={{fontWeight: 'bold', fontSize: 20}}>Thank You for Using Easy Tip Calculator!</Text>
+            <Text style={{fontSize: 15, marginTop: 10}}>This app was developed and is maintained by Zach Tucker (
+                <Text onPress={() => Linking.openURL('https://zachtucker.dev')}>https://zachtucker.dev</Text>)
+            </Text>
+            <Text style={{fontSize: 15, marginTop: 10}}>Powered by React Native (
+                <Text onPress={() => Linking.openURL('https://reactnative.dev')}>https://reactnative.dev</Text>)
+            </Text>
+          </View>
+        </Overlay>
     </KeyboardAvoidingView>
   </SafeAreaProvider>
   );
@@ -132,6 +152,9 @@ const styles = StyleSheet.create({
       backgroundColor: '#e1e2e1',
       borderWidth: 1,
   },
+  helpModal: {
+    
+  }
 });
 
 export default App;

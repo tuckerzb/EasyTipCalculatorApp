@@ -17,6 +17,15 @@ const AppHeader = (props) => {
 		  containerStyle={{
 		  	backgroundColor: '#002335'
 		  }}
+
+		  rightComponent={
+			<TouchableOpacity  onPress={props.handleModal}>
+				<Icon
+				name="help"
+				size={30}
+				color="#fff"/>
+			</TouchableOpacity>
+		  }
 		/>
 	);
 };
